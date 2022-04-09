@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DeveloperActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="20dp"
+                android:text="Плотников Владислав Вадимович"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="2dp"
+                android:text="(БГУИРовец; пишу на С++ за еду)"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/developer_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:paddingTop="2dp"
+                android:text="E-mail: vadimovich74@gmail.com"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="30dp"
+                android:paddingTop="2dp"
+                android:text="Тел.: +375(29)6886555"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="60dp"
+                    android:paddingTop="2dp"
+                    android:text="Специальность:\nПОИТ\nГруппа 951005"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/fksis_logo" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="2dp"
+                android:text="Секретарь студсовета общежития №2"
+                android:textColor="@color/teal_200"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/star_struck_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Рассудительный"
+                    android:textColor="@color/red"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/star_struck_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/monocle_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Исполнительный"
+                    android:textColor="@color/orange"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/monocle_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/nerd_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Любознательный"
+                    android:textColor="@color/yellow"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/nerd_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/exploding_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Открыт к новым идеям"
+                    android:textColor="@color/green"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/exploding_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/guitar_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Люблю Nirvava, ГрОб, OOMPH!"
+                    android:textColor="@color/skyblue"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/guitar_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/uk_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Люблю иностранные языки"
+                    android:textColor="@color/navyblue"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/germany_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/left_thought_emoj" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Много рефлексирую"
+                    android:textColor="@color/purple_200"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/right_thought_emoj" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="320dp"
+                    android:layout_height="168dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/lenin_photo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="20dp"
+                    android:text="Жизненный девиз:"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="25dp"
+                    android:text="Учиться, учиться и еще раз учиться!"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
