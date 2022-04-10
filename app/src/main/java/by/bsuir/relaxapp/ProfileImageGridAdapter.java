@@ -1,6 +1,7 @@
 package by.bsuir.relaxapp;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,18 @@ import android.widget.ImageView;
 public class ProfileImageGridAdapter extends BaseAdapter {
 
     Context context;
-    int[] userProfileImages;
+    Bitmap[] userProfileImages;
 
     LayoutInflater inflater;
 
-    public ProfileImageGridAdapter(Context context, int[] images) {
+    public ProfileImageGridAdapter(Context context, Bitmap[] images) {
         this.context = context;
         this.userProfileImages = images;
     }
 
     @Override
     public int getCount() {
-        return userProfileImages.length;
+        return (ProfileFragment.ADD_IMAGE_INDEX == -1) ? ProfileFragment.MAX_ATTACH_PHOTOS : ProfileFragment.ADD_IMAGE_INDEX + 1;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class ProfileImageGridAdapter extends BaseAdapter {
         }
 
         ImageView imageView = view.findViewById(R.id.item_image);
-        imageView.setImageResource(userProfileImages[i]);
+        imageView.setImageBitmap(userProfileImages[i]);
 
         return view;
     }

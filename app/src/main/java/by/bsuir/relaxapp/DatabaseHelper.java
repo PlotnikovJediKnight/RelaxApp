@@ -19,15 +19,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static String KEY_age = "age";
     public static String KEY_zodiac = "zodiac";
 
-    /*
+
     public static String KEY_profilePic = "profilePic";
+    public static String SUPP_pic_str = "pic";
+    public static String KEY_pic0 = "pic0";
     public static String KEY_pic1 = "pic1";
     public static String KEY_pic2 = "pic2";
     public static String KEY_pic3 = "pic3";
     public static String KEY_pic4 = "pic4";
     public static String KEY_pic5 = "pic5";
-    public static String KEY_pic6 = "pic6";
-    */
+    public static String KEY_realImageCount = "realImageCount";
+
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -42,7 +44,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_sysPressure + " integer," +
                 KEY_diaPressure + " integer," +
                 KEY_age + " integer," +
-                KEY_zodiac + " integer"
+                KEY_zodiac + " integer," +
+                KEY_profilePic + " blob," +
+                KEY_pic0 + " blob," +
+                KEY_pic1 + " blob," +
+                KEY_pic2 + " blob," +
+                KEY_pic3 + " blob," +
+                KEY_pic4 + " blob," +
+                KEY_pic5 + " blob," +
+                KEY_realImageCount + " integer"
                 + ")");
     }
 
