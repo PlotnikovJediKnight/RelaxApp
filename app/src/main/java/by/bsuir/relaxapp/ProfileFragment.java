@@ -82,7 +82,7 @@ public class ProfileFragment extends Fragment {
 
     private FirebaseUser user;
     private DatabaseReference reference;
-    private String fullName;
+    public static String fullName;
     private String email;
 
     private ProgressBar progressBar;

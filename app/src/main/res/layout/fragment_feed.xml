@@ -61,41 +61,16 @@
             android:textColor="@color/sedative_grey"
             android:textSize="20dp" />
 
-        <ImageView
-            android:background="@color/white"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/calm_icon"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="35dp"
+            android:id="@+id/mood_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
 
-        <ImageView
-            android:background="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/focus_icon"/>
-
-        <ImageView
-            android:background="@color/white"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/relax_icon"/>
-
-        <ImageView
-            android:background="@color/white"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/excited_icon"/>
-
-        <ImageView
-            android:background="@color/white"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/authentic_icon"/>
-
-        <ImageView
-            android:background="@color/white"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/fake_icon"/>
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>
