@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.Random;
 
 public class ProfileImageGridAdapter extends BaseAdapter {
 
@@ -14,6 +17,7 @@ public class ProfileImageGridAdapter extends BaseAdapter {
     Bitmap[] userProfileImages;
 
     LayoutInflater inflater;
+    Random random = new Random();
 
     public ProfileImageGridAdapter(Context context, Bitmap[] images) {
         this.context = context;
@@ -35,6 +39,10 @@ public class ProfileImageGridAdapter extends BaseAdapter {
         return 0;
     }
 
+    private String getRandomTime(){
+        return String.valueOf(10 + random.nextInt(14)) + ":" + String.valueOf(10 + random.nextInt(50));
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
@@ -48,6 +56,13 @@ public class ProfileImageGridAdapter extends BaseAdapter {
 
         ImageView imageView = view.findViewById(R.id.item_image);
         imageView.setImageBitmap(userProfileImages[i]);
+
+        TextView timeView = view.findViewById(R.id.timeTextView);
+        if (i != ProfileFragment.ADD_IMAGE_INDEX) {
+            timeView.setText(getRandomTime());
+        } else{
+            timeView.setVisibility(View.GONE);
+        }
 
         return view;
     }
