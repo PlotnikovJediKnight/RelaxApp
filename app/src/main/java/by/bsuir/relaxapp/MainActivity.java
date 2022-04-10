@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 case R.id.mmBodyWeightIndex:{
-                    Toast.makeText(MainActivity.this, "Bodyweight", Toast.LENGTH_LONG).show();
+                    Intent toBodyMassIndexActivity = new Intent(this, BodyMassIndexActivity.class);
+                    startActivity(toBodyMassIndexActivity);
                     break;
                 }
 

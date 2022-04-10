@@ -36,7 +36,7 @@ public class UserInfoDB {
         SYS_PRESSURE = -1;
         DIA_PRESSURE = -1;
         AGE = -1;
-        ZODIAC = -1;
+        ZODIAC = 0;
         USER_PROFILE_IMAGE = null;
         USER_IMAGES = new Bitmap[]{
                 BitmapFactory.decodeResource(MAIN_ACTIVITY_CONTEXT.getResources(), R.drawable.add_image),
