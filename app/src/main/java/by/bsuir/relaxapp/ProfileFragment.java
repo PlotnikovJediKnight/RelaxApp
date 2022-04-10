@@ -87,7 +87,7 @@ public class ProfileFragment extends Fragment {
 
     private ProgressBar progressBar;
 
-    private String userID;
+    public static String userID;
 
     private TextView userNameTextView;
     private TextView userEmailTextView;
@@ -125,17 +125,32 @@ public class ProfileFragment extends Fragment {
         DB_HELPER = new DatabaseHelper(MainActivity.MAIN_ACTIVITY_CONTEXT);
         SQLiteDatabase sQlitedatabase = DB_HELPER.getWritableDatabase();
 
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.KEY_id, userID);
-        contentValues.put(DatabaseHelper.KEY_weight, CURR_USER_DB_INFO.WEIGHT);
-        contentValues.put(DatabaseHelper.KEY_height, CURR_USER_DB_INFO.HEIGHT);
-        contentValues.put(DatabaseHelper.KEY_sysPressure, CURR_USER_DB_INFO.SYS_PRESSURE);
-        contentValues.put(DatabaseHelper.KEY_diaPressure, CURR_USER_DB_INFO.DIA_PRESSURE);
-        contentValues.put(DatabaseHelper.KEY_age, CURR_USER_DB_INFO.AGE);
-        contentValues.put(DatabaseHelper.KEY_zodiac, CURR_USER_DB_INFO.ZODIAC);
-        contentValues.put(DatabaseHelper.KEY_realImageCount, CURR_USER_DB_INFO.REAL_IMAGES_COUNT);
+        {//TABLE_USERS
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DatabaseHelper.KEY_id, userID);
+            contentValues.put(DatabaseHelper.KEY_weight, CURR_USER_DB_INFO.WEIGHT);
+            contentValues.put(DatabaseHelper.KEY_height, CURR_USER_DB_INFO.HEIGHT);
+            contentValues.put(DatabaseHelper.KEY_sysPressure, CURR_USER_DB_INFO.SYS_PRESSURE);
+            contentValues.put(DatabaseHelper.KEY_diaPressure, CURR_USER_DB_INFO.DIA_PRESSURE);
+            contentValues.put(DatabaseHelper.KEY_age, CURR_USER_DB_INFO.AGE);
+            contentValues.put(DatabaseHelper.KEY_zodiac, CURR_USER_DB_INFO.ZODIAC);
+            contentValues.put(DatabaseHelper.KEY_realImageCount, CURR_USER_DB_INFO.REAL_IMAGES_COUNT);
 
-        sQlitedatabase.insert(DatabaseHelper.TABLE_USERS, null, contentValues);
+            sQlitedatabase.insert(DatabaseHelper.TABLE_USERS, null, contentValues);
+        }
+
+        {//TABLE_MOODS
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DatabaseHelper.KEY_id, userID);
+            contentValues.put(DatabaseHelper.KEY_calm, 0);
+            contentValues.put(DatabaseHelper.KEY_relax, 0);
+            contentValues.put(DatabaseHelper.KEY_focus, 0);
+            contentValues.put(DatabaseHelper.KEY_excited, 0);
+            contentValues.put(DatabaseHelper.KEY_authentic, 0);
+            contentValues.put(DatabaseHelper.KEY_fake, 0);
+
+            sQlitedatabase.insert(DatabaseHelper.TABLE_MOODS, null, contentValues);
+        }
         DB_HELPER.close();
 
         saveAttachableImagesToDatabase();
@@ -182,6 +197,24 @@ public class ProfileFragment extends Fragment {
         }
 
         return toReturn;
+    }
+
+    private void fillUserMoodsClickCounts(Cursor cursor){
+        if (cursor.moveToFirst()) {
+            int calmInd = cursor.getColumnIndex(DatabaseHelper.KEY_calm);
+            int relaxInd = cursor.getColumnIndex(DatabaseHelper.KEY_relax);
+            int focusInd = cursor.getColumnIndex(DatabaseHelper.KEY_focus);
+            int excitedInd = cursor.getColumnIndex(DatabaseHelper.KEY_excited);
+            int authenticInd = cursor.getColumnIndex(DatabaseHelper.KEY_authentic);
+            int fakeInd = cursor.getColumnIndex(DatabaseHelper.KEY_fake);
+
+            MainActivity.APP_MOODS[0].clickedCount = cursor.getInt(calmInd);
+            MainActivity.APP_MOODS[1].clickedCount = cursor.getInt(relaxInd);
+            MainActivity.APP_MOODS[2].clickedCount = cursor.getInt(focusInd);
+            MainActivity.APP_MOODS[3].clickedCount = cursor.getInt(excitedInd);
+            MainActivity.APP_MOODS[4].clickedCount = cursor.getInt(authenticInd);
+            MainActivity.APP_MOODS[5].clickedCount = cursor.getInt(fakeInd);
+        }
     }
 
     private void getDataFromDatabase(){
@@ -233,6 +266,29 @@ public class ProfileFragment extends Fragment {
                     userImagesBitmaps,//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/,
                     earlyRealPhotoCount
                 );
+
+            ////////////////////////////////////////////////////////////////////////////
+            //MOODS
+            {
+                cursor =
+                        sQlitedatabase.query(
+                                DatabaseHelper.TABLE_MOODS,
+                                new String[]{
+                                        DatabaseHelper.KEY_calm,
+                                        DatabaseHelper.KEY_relax,
+                                        DatabaseHelper.KEY_focus,
+                                        DatabaseHelper.KEY_excited,
+                                        DatabaseHelper.KEY_authentic,
+                                        DatabaseHelper.KEY_fake},
+                                DatabaseHelper.KEY_id + " = '" + userID + "'",
+                                null, null, null, null);
+
+                fillUserMoodsClickCounts(cursor);
+            }
+
+            //MOODS
+            /////////////////////////////////////////////////////////////////////////////
+
         } else {
             CURR_USER_DB_INFO = new UserInfoDB();
             insertNewUserIntoDatabase();

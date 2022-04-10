@@ -8,6 +8,8 @@
     android:gravity="center">
     
     <androidx.cardview.widget.CardView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
         android:layout_gravity="center"
         android:id="@+id/card_view"
         android:layout_width="60dp"
@@ -15,9 +17,11 @@
         app:cardCornerRadius="18dp"
         app:cardMaxElevation="2dp"
         app:cardElevation="1dp"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:focusable="true">
 
         <RelativeLayout
+            android:background="?attr/selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.nio.charset.MalformedInputException;
@@ -33,8 +34,8 @@ public class MoodAdapter extends RecyclerView.Adapter<MoodAdapter.ViewHolder>{
         holder.mood_image.setImageResource(MainActivity.APP_MOODS[position].moodImageResourceID);
         holder.mood_name.setText(MainActivity.APP_MOODS[position].name);
 
-        holder.mood_image.setOnClickListener(lambda->{
-
+        holder.card_view.setOnClickListener(lambda->{
+            MainActivity.APP_MOODS[position].incrementMoodClick();
         });
     }
 
@@ -45,6 +46,7 @@ public class MoodAdapter extends RecyclerView.Adapter<MoodAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        CardView card_view;
         ImageView mood_image;
         TextView mood_name;
 
@@ -53,6 +55,7 @@ public class MoodAdapter extends RecyclerView.Adapter<MoodAdapter.ViewHolder>{
 
             mood_image = itemView.findViewById(R.id.mood_icon);
             mood_name = itemView.findViewById(R.id.mood_text);
+            card_view = itemView.findViewById(R.id.card_view);
         }
     }
 }
