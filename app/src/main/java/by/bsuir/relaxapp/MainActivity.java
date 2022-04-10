@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.Window;
@@ -23,7 +24,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static HoroscopeAPI horoscopeAPI = new HoroscopeAPI();
+    public static Sign signs[] = null;
 
     public static Activity MAIN_ACTIVITY_CONTEXT;
     public static DatabaseHelper DB_HELPER;
@@ -85,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 case R.id.mmHoroscope:{
-                    Toast.makeText(MainActivity.this, "Horoscope", Toast.LENGTH_LONG).show();
+                    Intent toHoroscopeActivity = new Intent(this, HoroscopeActivity.class);
+                    startActivity(toHoroscopeActivity);
                     break;
                 }
 
@@ -107,6 +116,25 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+    }
+
+    private void downloadHoroscopeInformation(){
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            if (HoroscopeAPI.canConnect()){
+                horoscopeAPI.load();
+                signs = horoscopeAPI.getSigns();
+            } else{
+                signs = null;
+            }
+        });
+
+        try {
+            executor.shutdown();
+            executor.awaitTermination(7, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -137,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.openDrawer(Gravity.LEFT);
         });
 
+        downloadHoroscopeInformation();
     }
 
     @Override

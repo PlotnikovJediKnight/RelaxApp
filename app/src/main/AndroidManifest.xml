@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RelaxApp">
         <activity
+            android:name=".BodyMassIndexActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HoroscopeActivity"
+            android:exported="false" />
+        <activity
             android:name=".DeveloperActivity"
             android:exported="false" />
         <activity
