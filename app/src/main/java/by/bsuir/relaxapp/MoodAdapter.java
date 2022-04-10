@@ -36,6 +36,7 @@ public class MoodAdapter extends RecyclerView.Adapter<MoodAdapter.ViewHolder>{
 
         holder.card_view.setOnClickListener(lambda->{
             MainActivity.APP_MOODS[position].incrementMoodClick();
+            FeedFragment.setAppropriateNewsAdapter();
         });
     }
 
