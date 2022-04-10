@@ -11,6 +11,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "dbRelaxApp";
     public static final String TABLE_USERS = "users";
 
+    //=============================================================================
+
     public static String KEY_id = "_id";
     public static String KEY_weight = "weight";
     public static String KEY_height = "height";
@@ -29,6 +31,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static String KEY_pic4 = "pic4";
     public static String KEY_pic5 = "pic5";
     public static String KEY_realImageCount = "realImageCount";
+
+    //=============================================================================
+
+
+    public static final String TABLE_MOODS = "moods";
+    public static String KEY_calm = "calm";
+    public static String KEY_relax = "relax";
+    public static String KEY_focus = "focus";
+    public static String KEY_excited = "excited";
+    public static String KEY_authentic = "authentic";
+    public static String KEY_fake = "fake";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -53,6 +66,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 KEY_pic4 + " blob," +
                 KEY_pic5 + " blob," +
                 KEY_realImageCount + " integer"
+                + ")");
+
+
+        sqLiteDatabase.execSQL("create table " + TABLE_MOODS + "(" +
+                KEY_id + " text primary key," +
+                KEY_calm + " integer," +
+                KEY_relax + " integer," +
+                KEY_focus + " integer," +
+                KEY_excited + " integer," +
+                KEY_authentic + " integer," +
+                KEY_fake + " integer"
                 + ")");
     }
 

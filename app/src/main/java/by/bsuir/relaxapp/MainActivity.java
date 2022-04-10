@@ -30,6 +30,16 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int MOODS_COUNT = 6;
+    public static Mood APP_MOODS[] =
+            new Mood[]{
+                    new Mood(R.drawable.calm_icon, "Спокойным", DatabaseHelper.KEY_calm, 0),
+                    new Mood(R.drawable.relax_icon, "Расслабленным", DatabaseHelper.KEY_relax,0),
+                    new Mood(R.drawable.focus_icon, "Сосредоточенным", DatabaseHelper.KEY_focus,0),
+                    new Mood(R.drawable.excited_icon, "Взволнованным", DatabaseHelper.KEY_excited,0),
+                    new Mood(R.drawable.authentic_icon,"Аутентичным", DatabaseHelper.KEY_authentic,0),
+                    new Mood(R.drawable.fake_icon,"Фальшивкой",DatabaseHelper.KEY_fake,0) };
+
     public static HoroscopeAPI horoscopeAPI = new HoroscopeAPI();
     public static Sign signs[] = null;
 
