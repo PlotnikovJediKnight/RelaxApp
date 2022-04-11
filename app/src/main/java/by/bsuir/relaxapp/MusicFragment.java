@@ -1,14 +1,49 @@
 package by.bsuir.relaxapp;
 
+import com.spotify.android.appremote.api.ConnectionParams;
+import com.spotify.android.appremote.api.Connector;
+import com.spotify.android.appremote.api.SpotifyAppRemote;
+
+import com.spotify.protocol.client.Subscription;
+import com.spotify.protocol.types.PlayerState;
+import com.spotify.protocol.types.Track;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class MusicFragment extends Fragment {
+
+    private void connected(){
+        mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX2sUQwD7tbmL");
+
+        mSpotifyAppRemote.getPlayerApi()
+                .subscribeToPlayerState()
+                .setEventCallback(playerState -> {
+                    final Track track = playerState.track;
+                    if (track != null) {
+                        Log.d("MainActivity", track.name + " by " + track.artist.name);
+                    }
+                });
+    }
+
+    public static void stopMusic(){
+        if (mSpotifyAppRemote != null) {
+            mSpotifyAppRemote.getPlayerApi().pause();
+            //SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+        }
+    }
+
+    private static final String CLIENT_ID = "8cd0b669498e49d8b1915d6da500e789";
+    private static final String REDIRECT_URI = "https://localhost:8080";
+    public static SpotifyAppRemote mSpotifyAppRemote = null;
+
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -37,6 +72,36 @@ public class MusicFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_music, container, false);
+        View view = inflater.inflate(R.layout.fragment_music, container, false);
+
+        Button stopButton = view.findViewById(R.id.stopButton);
+        stopButton.setOnClickListener(lambda->{
+            stopMusic();
+        });
+
+        ConnectionParams connectionParams =
+                new ConnectionParams.Builder(CLIENT_ID)
+                        .setRedirectUri(REDIRECT_URI)
+                        .showAuthView(true)
+                        .build();
+
+        SpotifyAppRemote.connect(MainActivity.MAIN_ACTIVITY_CONTEXT, connectionParams,
+                new Connector.ConnectionListener() {
+
+                    @Override
+                    public void onConnected(SpotifyAppRemote spotifyAppRemote) {
+                        mSpotifyAppRemote = spotifyAppRemote;
+                        Log.d("MainActivity", "Connected! Yay!");
+
+                        connected();
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        Log.e("MainActivity", throwable.getMessage(), throwable);
+                    }
+                });
+
+        return view;
     }
 }

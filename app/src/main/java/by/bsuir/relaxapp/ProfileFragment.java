@@ -628,6 +628,8 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        MusicFragment.stopMusic();
+
         progressBar = view.findViewById(R.id.progressBarProfileFragment);
 
 
