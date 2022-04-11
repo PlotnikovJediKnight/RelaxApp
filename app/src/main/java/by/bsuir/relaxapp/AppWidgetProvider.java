@@ -87,26 +87,46 @@ public class AppWidgetProvider extends android.appwidget.AppWidgetProvider {
         if (MyOnClick0.equals(intent.getAction())) {
             CURR_PLAYLIST_INDEX = 0;
             currState = PLAYER_STATE.GONNA_PLAY;
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().pause();
+            }
         } else if (MyOnClick1.equals(intent.getAction())) {
             CURR_PLAYLIST_INDEX = 1;
             currState = PLAYER_STATE.GONNA_PLAY;
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().pause();
+            }
         } else if (MyOnClick2.equals(intent.getAction())) {
             CURR_PLAYLIST_INDEX = 2;
             currState = PLAYER_STATE.GONNA_PLAY;
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().pause();
+            }
         } else if (MyOnClick3.equals(intent.getAction())) {
             CURR_PLAYLIST_INDEX = 3;
             currState = PLAYER_STATE.GONNA_PLAY;
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().pause();
+            }
         } else if (MyOnClick4.equals(intent.getAction())) {
             CURR_PLAYLIST_INDEX = 4;
             currState = PLAYER_STATE.GONNA_PLAY;
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().pause();
+            }
         } else if (MyOnClick5.equals(intent.getAction())) {
             CURR_PLAYLIST_INDEX = 5;
             currState = PLAYER_STATE.GONNA_PLAY;
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().pause();
+            }
         }
 
 
         else if (prevSong.equals(intent.getAction())) {
-
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().skipPrevious();
+            }
         }
 
 
@@ -122,10 +142,14 @@ public class AppWidgetProvider extends android.appwidget.AppWidgetProvider {
 
             else if (currState == PLAYER_STATE.GONNA_PAUSE){
                 currState = PLAYER_STATE.GONNA_RESUME;
+
+                mSpotifyAppRemote.getPlayerApi().pause();
             }
 
             else if (currState == PLAYER_STATE.GONNA_RESUME){
                 currState = PLAYER_STATE.GONNA_PAUSE;
+
+                mSpotifyAppRemote.getPlayerApi().resume();
             }
 
 
@@ -137,7 +161,9 @@ public class AppWidgetProvider extends android.appwidget.AppWidgetProvider {
 
 
         else if (nextSong.equals(intent.getAction())) {
-
+            if (mSpotifyAppRemote != null) {
+                mSpotifyAppRemote.getPlayerApi().skipNext();
+            }
         } else{
             super.onReceive(context, intent);
         }
@@ -198,7 +224,7 @@ public class AppWidgetProvider extends android.appwidget.AppWidgetProvider {
 
     public static final String SUPP_PLAYLIST_PLAY_STR = "spotify:playlist:";
     public static final String PLAYLIST_IDS[] = new String[]
-            {   "16b887lG3wgyYtXus4PfFT",
+            {       "16b887lG3wgyYtXus4PfFT",
                     "6UZaOdd7TOy33Xhl3NcJFn",
                     "0baxQIQd1HKmmRj4IBAaYf",
                     "4jPiN7G9ukHxm9Zzoi4Fqp",
