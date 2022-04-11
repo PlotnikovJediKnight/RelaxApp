@@ -19,4 +19,11 @@
         <item>Водолей</item>
         <item>Рыбы</item>
     </string-array>
+
+    <string-array name="inactivity_options_array">
+        <item>5 c</item>
+        <item>10 c</item>
+        <item>20 c</item>
+    </string-array>
+
 </resources>

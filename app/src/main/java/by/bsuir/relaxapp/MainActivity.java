@@ -10,6 +10,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -116,7 +120,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 case R.id.mmEyeTraining:{
-                    Toast.makeText(MainActivity.this, "Eye training", Toast.LENGTH_LONG).show();
+                    Intent toEyeTrainingActivity = new Intent(this, EyeTrainingActivity.class);
+                    startActivity(toEyeTrainingActivity);
                     break;
                 }
 
@@ -179,6 +184,9 @@ public class MainActivity extends AppCompatActivity {
 
         downloadHoroscopeInformation();
     }
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
