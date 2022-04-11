@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
         navView.setNavigationItemSelectedListener(menuItem->{
             switch (menuItem.getItemId()){
                 case R.id.mmTutorial:{
-                    Toast.makeText(MainActivity.this, "Tutorial", Toast.LENGTH_LONG).show();
+                    Intent toReferenceActivity = new Intent(this, ReferenceActivity.class);
+                    startActivity(toReferenceActivity);
                     break;
                 }
 
